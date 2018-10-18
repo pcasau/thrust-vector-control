@@ -16,4 +16,4 @@ function nuv = nu_star(z)
     ddot_pd = z(1:3);
     pe = z(4:6);
     ve = z(7:9);
-    nuv = 2*svmaxP*norm(w(pe,ve)+g-ddot_pd)/sqrt(lbar_aa);
+    nuv = 4*svmaxP*norm(w(pe,ve)+g-ddot_pd)/sqrt(lbar_aa);

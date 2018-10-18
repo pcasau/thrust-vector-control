@@ -12,5 +12,5 @@ function [Vxy,gradVy] = V(x,y)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     global k r
     Vxy = (1-r'*x)/(1-r'*x+k*(1-y'*x));
-    gradVy = (2*k*Vxy*y-(1-Vxy)*r)/(1-r'*x+k*(1-y'*x));
+    gradVy = (k*Vxy*y-(1-Vxy)*r)/(1-r'*x+k*(1-y'*x));
     

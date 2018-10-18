@@ -1,4 +1,4 @@
-function x0 = init(H)
+function [zeta0,t0] = init(H)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % x0 = init(H) - random selection of initial conditions
@@ -31,4 +31,4 @@ function x0 = init(H)
     if y0'*r>gamma
         y0 = PT(r)*y0/norm(PT(r)*y0)*sqrt(1-gamma^2)+gamma*r;
     end
-    x0 = [ad0;pe0;ve0;R0(:);y0;t0];
+    zeta0 = [ad0;pe0;ve0;R0(:);y0];

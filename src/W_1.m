@@ -9,8 +9,13 @@ function [fx,Dfx] = W_1(zeta)
     [Vpv,gradVp] = Vp(pe,ve);
     [Vxy,gradVy] = V(R'*rho(z),y);
     fx = sqrt(Vpv)+bark1*sqrt(Vxy);
-    if Vxy > 1e-6 && Vpv > 1e-6
-        Dfx = [0.5*gradVp/sqrt(Vpv);0.5*bark1*gradVy/sqrt(Vxy)];
+    if Vpv > 1e-6
+        Dfx = 0.5*gradVp/sqrt(Vpv);
     else
         Dfx = zeros(6,1);
+    end
+    if Vxy > 1e-6
+        Dfx = [Dfx;0.5*bark1*gradVy/sqrt(Vxy)];
+    else
+        Dfx = [Dfx;zeros(3,1)];
     end

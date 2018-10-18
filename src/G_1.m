@@ -9,3 +9,4 @@ function Gv = G_1(zeta)
     z = zeta(1:9);
     R  = reshape(zeta(10:18),[3 3]);
     Gv = [z;R(:);minV(R'*rho(z))];
+    Gv = [Gv;W_1(Gv)];
