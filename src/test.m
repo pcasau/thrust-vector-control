@@ -33,10 +33,21 @@ W1_0       = W_1(zeta0);
 options = odeset('reltol',1e-6,'abstol',1e-6);
 [t,j,x] = HyEQsolver(@(x) [F_1(x(23),x(1:21));1],...
     @(x) [G_1(x);x(22)],@C_1,@D_1,[zeta0;W1_0;t0],TSPAN,JSPAN,rule,options);
-%Plot Results
-N = numel(t);
-W1 = zeros(N,1);
-for I = 1:N
-    W1(I) = W_1(x(I,1:21)');
-end
-plot(t,[W1 x(:,22)])
+%% Plot Results
+subplot(1,2,1)
+plot(t,x(:,4:6))
+grid on
+xlabel('t[s]')
+ylabel('Position Error [m]')
+subplot(1,2,2)
+plot(t,x(:,7:8))
+grid on
+xlabel('t[s]')
+ylabel('Velocity Error [m/s]')
+%Plot Lyapunov Function
+% N = numel(t);
+% W1 = zeros(N,1);
+% for I = 1:N
+%     W1(I) = W_1(x(I,1:21)');
+% end
+% plot(t,[W1 x(:,22)])
